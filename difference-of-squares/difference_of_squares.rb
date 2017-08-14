@@ -5,15 +5,15 @@ class Squares
   end
 
   def square_of_sum
-    (@n * (1 + @n) / 2) ** 2
+    (1..@n).sum ** 2
   end
 
   def sum_of_squares
-    (1..@n).inject(0) { |sum, n| sum + n ** 2 }
+    (1..@n).sum { |n| n ** 2 }
   end
 
   def difference
-    self.square_of_sum - self.sum_of_squares
+    square_of_sum - sum_of_squares
   end
 end
 
