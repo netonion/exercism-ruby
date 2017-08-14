@@ -1,11 +1,7 @@
 
 module Complement
-
-  MAPPING = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
-
-  def self.of_dna dna
-    rna = dna.chars.map { |e| MAPPING[e] }.join
-    rna.length == dna.length ? rna : ''
+  def self.of_dna(dna)
+    dna.count('GCTA') == dna.size ? dna.tr('GCTA', 'CGAU') : ''
   end
 end
 
