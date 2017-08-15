@@ -5,7 +5,7 @@ module Grains
   end
 
   def self.total
-    (1..64).sum { |n| square(n) }
+    2 ** 64 - 1
   end
 end
 
