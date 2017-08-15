@@ -1,6 +1,6 @@
 module Grains
   def self.square(n)
-    raise ArgumentError unless (1..64).include? n
+    raise ArgumentError unless (1..64).cover? n
     2 ** (n - 1)
   end
 
