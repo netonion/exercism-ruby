@@ -5,6 +5,6 @@ class Series
 
   def slices(n)
     raise ArgumentError if n > @series.size
-    (0..@series.size - n).map { |i| @series[i, n] }
+    @series.chars.each_cons(n).map(&:join)
   end
 end
