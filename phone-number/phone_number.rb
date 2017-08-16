@@ -1,7 +1,8 @@
 module PhoneNumber
   def self.clean(num)
     cleaned = num.tr('^0-9', '')
-    cleaned.match(/^1?([2-9]\d{2}[2-9]\d{6})$/) ? $1 : nil
+    cleaned = cleaned[1..-1] if cleaned.start_with?('1')
+    cleaned.size == 10 && ('2'..'9') === cleaned[3] ? cleaned : nil
   end
 end
 
