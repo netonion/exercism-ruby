@@ -12,7 +12,7 @@ class School
   end
 
   def students_by_grade
-    @students.map { |grade, students| {grade: grade, students: students} }.sort_by { |e| e[:grade] }
+    @students.sort.map { |grade, students| {grade: grade, students: students} }
   end
 end
 
