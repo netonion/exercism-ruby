@@ -2,30 +2,18 @@ class Robot
 
   attr_reader :name
 
-  @@used = {}
+  def self.forget
+    @@names = ('AA000'..'ZZ999').to_a.shuffle
+  end
+
+  forget
 
   def initialize
-    set_name
+    reset
   end
 
   def reset
-    set_name
-  end
-
-  def self.forget
-    @@used.clear
-  end
-
-  def set_name
-    @name = gen_name
-    while @@used.has_key? @name
-      @name = gen_name
-    end
-    @@used[@name] = true
-  end
-
-  def gen_name
-    ('A'..'Z').to_a.sample + ('A'..'Z').to_a.sample + "%03d" % rand(999)
+    @name = @@names.pop
   end
 end
 
